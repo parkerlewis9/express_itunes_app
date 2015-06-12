@@ -35,7 +35,7 @@ You should at least save the following for a score document:
 
 1. Players name
 2. high score
-3. Date of score (BONUS but date objects can get complicated so this is a good challenege).
+3. Date of score (BONUS but date objects can get complicated so this is a good challenge).
 
 ## Styling
 
