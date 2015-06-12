@@ -1,0 +1,30 @@
+<% include ../partials/header %>
+
+	<div id="outerBox">
+		
+		<div id="squareBox">
+			<form action="/scores" method="POST">
+				<h3>Add a new user:</h3>
+				<div>
+					<label for="name">Name: </label>
+						<input type="text" name="score[name]" id="name" autofocus>
+				</div>
+				<div>
+					<label for="score">Score: </label>
+						<input type="text" name="score[score]" id="name" >
+				</div>
+				<div>
+					<input type="submit" value="Add">
+				</div>
+
+			</form>
+
+
+
+
+		</div>
+
+
+
+	</div>
+<% include ../partials/footer %>

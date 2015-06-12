@@ -1,0 +1,30 @@
+<% include ../partials/header %>
+
+	<div id="outerBox">
+		
+		<div id="squareBox">
+			<form action="/scores/<%= score.id %>?_method=PUT" method="POST">
+				<h3>Edit <%= score.name %>:</h3>
+				<div>
+					<label for="name">Name: </label>
+						<input type="text" name="score[name]" id="name" value="<%= score.name %>" autofocus>
+				</div>
+				<div>
+					<label for="score">Score: </label>
+						<input type="text" name="score[score]" id="name" value="<%= score.highScore %>">
+				</div>
+				<div>
+					<input type="submit" value="Edit">
+				</div>
+
+			</form>
+
+
+
+
+		</div>
+
+
+
+	</div>
+<% include ../partials/footer %>

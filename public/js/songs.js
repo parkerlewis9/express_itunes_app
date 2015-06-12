@@ -1,3 +1,5 @@
 $(function() {
-  alert("The javascript file that you send to the client will be in public/js/songs.js");
+	$("#audio_preview").on("canplay", function() {
+	  $("#audio_preview")[0].play();
+	});
 });
