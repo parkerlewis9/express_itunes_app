@@ -35,15 +35,16 @@ You should at least save the following for a score document:
 
 1. Players name
 2. high score
-3. Date of score (optional but date objects can get complicated so this is a good challenege).
+3. Date of score (BONUS but date objects can get complicated so this is a good challenege).
 
 ## Styling
 
 __Style your app__.  Make navigating around easy.  Make the different crud pages for scores look nice.  And of course, make the guessing game portion look as beautiful as before.
 
 ##BONUS
-1. Use bootstrap or some other css library to do your styling
-2. Instead of reloading a new page after every song, use ajax to both submit the new score and load a new song from the itunes api via jsonp
+1. Use bootstrap or some other css library to do your styling.
+2. Add a field to mongo for the date of the score. The date should be updated on each score update.
+2. Instead of reloading a new page after every song, use javascript to both submit the new score and load a new song from the itunes api via jsonp.
 
 ## HINTS
 
