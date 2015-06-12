@@ -14,7 +14,7 @@ You will need the following routes:
 * GET /scores/new
 * GET /scores/:id/edit
 * DELETE /scores/:id
-* GET /randomsong  (optionally /randomsong?id=myscoreid)
+* GET /randomsong  (optionally /randomsong?id=myscoreid&name=name&score=score)
 
 The routes with /scores should be the normal crud capabilities.  The route for /randomsong is explained below.
 
