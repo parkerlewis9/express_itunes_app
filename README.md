@@ -9,8 +9,8 @@ The guessing game will now save the users high score.  That can either be total 
 You will need the following routes:
 
 * GET /scores
-* POST /scores (optional ?nextsong=true)
-* PUT /scores/:id (optional ?nextsong=true)
+* POST /scores
+* PUT /scores/:id
 * GET /scores/new
 * GET /scores/:id/edit
 * DELETE /scores/:id
@@ -51,3 +51,4 @@ __Style your app__.  Make navigating around easy.  Make the different crud pages
 * Since we are no longer making client side requests to the itunes api, jsonp is not necessary.
 * The response from the server for the /randomsong route can preload a form to submit the score.   Your client side javascript can handle updating the values once you know if the song is correctly guessed or not.
 * __Start with the basic crud first__.  Since we haven't done a lot of client side javascript along with server side code, the randomsong route may seem challenging.  Don't work on it first!  Frist make the basic CRUD for scores.
+* For POST /scores and PUT /scores/:id, you will need to redirect to a randomsong?id=songid when the POST or PUT is coming from the random song page.  To achieve this, use a hidden field in your submit form that has a name=nextsong and a value=true.  If the value is not found in the body, then redirect to your normal crud page.
