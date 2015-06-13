@@ -96,10 +96,10 @@ header li {
 
 }
 
-#secondView {
+/*#secondView {
 	display: none;
 
-}
+}*/
 
 #correctView {
 	display: none;
@@ -134,6 +134,10 @@ form div{
 
 form h3 {
 	text-align: center;
+}
+
+#hiddenData {
+	display: none;
 }
 
 

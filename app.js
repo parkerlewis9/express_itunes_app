@@ -29,7 +29,7 @@ function randomId() {
 
 
 app.get("/", function(req, res) {
-  res.redirect("/scores");
+  res.redirect("/scores/new");
 });
 
 app.get("/scores", function(req, res) {
@@ -44,12 +44,23 @@ app.get("/scores/new", function(req, res) {
 })
 
 app.post("/scores", function(req, res) {
-	var score = {};
-	score.name= req.body.score.name;
-	score.highScore= parseInt(req.body.score.score)
-	db.Score.create(score, function(err, scores) {
-		res.redirect("/scores")
+	// var score = {};
+	// score.name= req.body.score.name;
+	// score.highScore= parseInt(req.body.score.score)
+	// db.Score.create(score, function(err, scores) {
+	// 	res.redirect("/scores")
+	// })
+
+	var score = new db.Score({
+		name: req.body.score.name,
+		highScore: 0
 	})
+	score.save(function(err, score) {
+		res.redirect("/randomsong?id=" + score.id + "&name=" + score.name + "&score" + score.highScore)
+	})
+
+
+
 })
 
 app.get("/scores/:id/edit", function(req, res) {
@@ -80,12 +91,20 @@ app.get("/scores/:id", function(req, res) {
 })
 
 app.get("/randomsong", function(req, res) {
+	//can use req.query.id to know which player you're using
+
 	var random = randomId();
 	var url = "https://itunes.apple.com/lookup?id="
 	request.get(url + songIds[random], function(err, response, body) {
 		var songData = JSON.parse(body);
-		var data = 	songData.results[0]	
-		res.render("songPage", {data: data})
+		var data = 	songData.results[0];	
+		console.log(data.artistName)
+
+
+		var name = req.query.name;
+		console.log(name)
+
+		res.render("songPage", {data: data});
 	})
 })
 
