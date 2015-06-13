@@ -56,7 +56,7 @@ app.post("/scores", function(req, res) {
 		highScore: 0
 	})
 	score.save(function(err, score) {
-		res.redirect("/randomsong?id=" + score.id + "&name=" + score.name + "&score" + score.highScore)
+		res.redirect("/randomsong?id=" + score.id + "&name=" + score.name + "&score=" + score.highScore)
 	})
 
 
@@ -70,12 +70,22 @@ app.get("/scores/:id/edit", function(req, res) {
 })
 
 app.put("/scores/:id", function(req, res) {
-	var score = {};
-	score.name= req.body.score.name;
-	score.highScore= parseInt(req.body.score.score)
-	db.Score.findByIdAndUpdate(req.params.id, score, function(err, score) {
-		res.redirect("/scores");
-	} )
+	if (req.query.nextsong === "true") {
+		db.Score.findByIdAndUpdate(req.params.id, req.body.score, function(err, score) {
+			console.log(score)
+			res.redirect("/randomsong?id=" + req.params.id + "&name=" + req.body.score.name + "&score=" + parseInt(req.body.score.highScore)  );
+		} )
+		// console.log(req.body)
+		// res.redirect("/")
+
+	} else {
+		var score = {};
+		score.name= req.body.score.name;
+		score.highScore= parseInt(req.body.score.score)
+		db.Score.findByIdAndUpdate(req.params.id, score, function(err, score) {
+			res.redirect("/scores");
+		} )
+	}
 })
 
 app.delete("/scores/:id", function(req, res) {
@@ -102,7 +112,11 @@ app.get("/randomsong", function(req, res) {
 
 
 		var name = req.query.name;
-		console.log(name)
+		var score = req.query.score;
+		var id = req.query.id;
+		data.name = name;
+		data.score = score;
+		data.id = id;
 
 		res.render("songPage", {data: data});
 	})

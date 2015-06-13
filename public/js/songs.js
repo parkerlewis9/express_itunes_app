@@ -14,14 +14,25 @@ $(function() {
 		var image = $("#imageData").html();
 		if(input === artist || input === track) {
 			console.log("right!");
-			$("#artist").html(artist)
-			$("#track").html(track)
-			$("#album").html(album)
-			$("#albumArt").attr("src", image)
+
+			//Display Correct Page
+			$("#artist").html(artist);
+			$("#track").html(track);
+			$("#album").html(album);
+			$("#albumArt").attr("src", image);
 
 			$("#correctView").show();
 			$("#secondView").hide();
-			$("#wrongView").hide()
+			$("#wrongView").hide();
+
+			//Update Score
+			var stringScore = $("#currentScore").html();
+			var score = parseInt(stringScore) + 1;
+			var name = $("#name").html();
+
+			$("#inputName").attr("value", name);
+			$("#inputScore").attr("value", score);
+
 
 			// rightAns++
 		} else {

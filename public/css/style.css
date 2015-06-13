@@ -106,9 +106,17 @@ header li {
 	text-align: center;
 }
 
+#correctView h1{
+	color: green;
+}
+
 #wrongView {
 	display: none;
 	text-align: center;
+}
+
+#wrongView h1 {
+	color: red;
 }
 
 .correctImg {
