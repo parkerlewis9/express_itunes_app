@@ -73,7 +73,7 @@ app.put("/scores/:id", function(req, res) {
 	if (req.query.nextsong === "true") {
 		db.Score.findByIdAndUpdate(req.params.id, req.body.score, function(err, score) {
 			console.log(score)
-			res.redirect("/randomsong?id=" + req.params.id + "&name=" + req.body.score.name + "&score=" + parseInt(req.body.score.highScore)  );
+			res.redirect("/randomsong?id=" + req.params.id + "&name=" + req.body.score.name + "&score=" + req.body.score.highScore );
 		} )
 		// console.log(req.body)
 		// res.redirect("/")

@@ -3,11 +3,13 @@
 	<div id="outerBox">
 		
 		<div id="squareBox">
-			<h1><%= score.name %> <br> Score: <%= score.highScore %></h1> 
-			
+			<div>
+				<h1><%= score.name %> <br> Score: <%= score.highScore %></h1> 
+			</div>
 
-
-
+			<div>
+				<a href="/randomsong?id=<%= score.id %>&amp;name=<%= score.name %>&amp;score=<%= score.highScore %>">Keep Playing?</a>
+			</div>
 
 		</div>
 

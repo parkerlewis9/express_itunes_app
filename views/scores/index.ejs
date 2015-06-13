@@ -7,6 +7,7 @@
 				<thead>
 					<th>Name</th>
 					<th>Score</th>
+					<th>Keep Playing</th>
 					<th>Edit</th>
 					<th>Delete</th>
 				</thead>
@@ -16,11 +17,17 @@
 							<td><a href="/scores/<%= score.id %>"><%= score.name %></a></td>
 							<td><%= score.highScore %></td>
 							<td>
+								<a href="/randomsong?id=<%= score.id %>&amp;name=<%= score.name %>&amp;score=<%= score.highScore %>">Keep Playing</a>
+
+							</td>
+
+							<td>
 								<form action="/scores/<%= score.id %>/edit" method="GET">
 									<input type="submit" value="Edit">
 								</form>
 
 							</td>
+
 							<td>
 								<form action="/scores/<%= score.id %>?_method=DELETE" method="POST">
 									<input type="submit" value="Delete">

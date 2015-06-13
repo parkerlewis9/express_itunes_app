@@ -69,6 +69,7 @@ header li {
 	border: 10px solid orange;
 	border-radius: 5%;
 	background-color: white;
+	overflow: scroll;
 }
 
 #instructions {
